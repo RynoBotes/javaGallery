@@ -1,6 +1,7 @@
 package za.ac.nwu.ga.translator.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import za.ac.nwu.ga.domain.dto.MemberInfoDto;
 import za.ac.nwu.ga.domain.persistence.MemberInfo;
 import za.ac.nwu.ga.repo.persistence.MemberInfoRepository;
@@ -9,6 +10,7 @@ import za.ac.nwu.ga.translator.MemberInfoTranslator;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MemberInfoTranslatorImpl implements MemberInfoTranslator
 {
     MemberInfoRepository memberInfoRepository;
@@ -34,6 +36,18 @@ public class MemberInfoTranslatorImpl implements MemberInfoTranslator
             throw new RuntimeException("Unable tp read from DB", e);
         }
         return memberInfoDtos;
+    }
+
+    @Override
+    public MemberInfoDto create(MemberInfoDto memberInfoDto) {
+        try
+        {
+            MemberInfo memberInfo = memberInfoRepository.save(memberInfoDto.getMemberInfo());
+            return new MemberInfoDto(memberInfo);
+        }catch(Exception e)
+        {
+            throw new RuntimeException("Unable to save to the DB",e);
+        }
     }
 
     @Override

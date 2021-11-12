@@ -1,5 +1,5 @@
-za\ac\nwu\ga\domain\persistence\MemberInfo.class
-za\ac\nwu\ga\domain\dto\MemberInfoDto.class
-za\ac\nwu\ga\domain\persistence\Photo.class
-za\ac\nwu\ga\domain\service\GeneralResponse.class
-za\ac\nwu\ga\domain\dto\PhotoDto.class
+za/ac/nwu/ga/domain/dto/MemberInfoDto.class
+za/ac/nwu/ga/domain/service/GeneralResponse.class
+za/ac/nwu/ga/domain/dto/PhotoDto.class
+za/ac/nwu/ga/domain/persistence/MemberInfo.class
+za/ac/nwu/ga/domain/persistence/Photo.class

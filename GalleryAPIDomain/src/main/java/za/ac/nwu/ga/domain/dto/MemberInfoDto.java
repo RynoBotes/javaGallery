@@ -1,5 +1,6 @@
 package za.ac.nwu.ga.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ga.domain.persistence.MemberInfo;
@@ -18,12 +19,17 @@ public class MemberInfoDto implements Serializable
     private String memberLName;
     private String memberEmail;
 
+    public MemberInfoDto() {
+    }
+
     public MemberInfoDto(Long memberId, String memberFName, String memberLName, String memberEmail) {
         this.memberId = memberId;
         this.memberFName = memberFName;
         this.memberLName = memberLName;
         this.memberEmail = memberEmail;
     }
+
+
 
     public MemberInfoDto(MemberInfo memberInfo)
     {
@@ -99,6 +105,12 @@ public class MemberInfoDto implements Serializable
         if (o == null || getClass() != o.getClass()) return false;
         MemberInfoDto that = (MemberInfoDto) o;
         return Objects.equals(memberId, that.memberId) && Objects.equals(memberFName, that.memberFName) && Objects.equals(memberLName, that.memberLName) && Objects.equals(memberEmail, that.memberEmail);
+    }
+
+    @JsonIgnore
+    public MemberInfo getMemberInfo()
+    {
+        return new MemberInfo(getMemberId(),getMemberFName(),getMemberLName(),getMemberEmail());
     }
 
     @Override

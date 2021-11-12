@@ -1,3 +1,4 @@
-za\ac\nwu\ga\web\sb\config\WebConfig.class
-za\ac\nwu\ga\web\sb\SpringBootRestApplication.class
-za\ac\nwu\ga\web\sb\config\SwaggerConfiguration.class
+za/ac/nwu/ga/web/sb/controller/MemberInfoController.class
+za/ac/nwu/ga/web/sb/config/WebConfig.class
+za/ac/nwu/ga/web/sb/config/SwaggerConfiguration.class
+za/ac/nwu/ga/web/sb/SpringBootRestApplication.class

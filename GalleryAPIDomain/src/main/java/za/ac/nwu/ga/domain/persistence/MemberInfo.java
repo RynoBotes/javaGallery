@@ -26,8 +26,15 @@ public class MemberInfo implements Serializable
     public MemberInfo() {
     }
 
+    public MemberInfo(Long memberId, String memberFName, String memberLName, String memberEmail) {
+        this.memberId = memberId;
+        this.memberFName = memberFName;
+        this.memberLName = memberLName;
+        this.memberEmail = memberEmail;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY , generator = "Member_id_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     public Long getId() {
         return id;

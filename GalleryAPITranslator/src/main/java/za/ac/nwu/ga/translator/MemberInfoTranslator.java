@@ -8,5 +8,7 @@ public interface MemberInfoTranslator
 {
     List<MemberInfoDto> getAllMembers();
 
+    MemberInfoDto create(MemberInfoDto memberInfoDto);
+
     MemberInfoDto getMemberById(Long id);
 }
