@@ -40,14 +40,14 @@ public class MemberInfoTranslatorImpl implements MemberInfoTranslator
 
     @Override
     public MemberInfoDto create(MemberInfoDto memberInfoDto) {
-        try
-        {
+//        try
+//        {
             MemberInfo memberInfo = memberInfoRepository.save(memberInfoDto.getMemberInfo());
             return new MemberInfoDto(memberInfo);
-        }catch(Exception e)
-        {
-            throw new RuntimeException("Unable to save to the DB",e);
-        }
+//        }catch(Exception e)
+//        {
+//            throw new RuntimeException("Unable to save to the DB",e);
+//        }
     }
 
     @Override

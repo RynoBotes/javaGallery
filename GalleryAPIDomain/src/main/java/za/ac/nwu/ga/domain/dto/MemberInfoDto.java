@@ -72,7 +72,7 @@ public class MemberInfoDto implements Serializable
         return memberLName;
     }
 
-    @ApiModelProperty(position = 3,
+    @ApiModelProperty(position = 4,
             value = "Member email",
             name = "email",
             notes = "The email of the member",
