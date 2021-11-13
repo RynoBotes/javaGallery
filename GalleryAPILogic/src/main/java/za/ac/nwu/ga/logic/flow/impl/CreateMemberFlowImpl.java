@@ -23,4 +23,10 @@ public class CreateMemberFlowImpl implements CreateMemberFlow
     public MemberInfoDto create(MemberInfoDto member) {
         return memberInfoTranslator.create(member);
     }
+
+    @Override
+    public MemberInfoDto updateMember(Long memberId, String newMemberFName, String newMemberLName, String newMemberEmail) {
+        return memberInfoTranslator.updateMember(memberId, newMemberFName, newMemberLName, newMemberEmail);
+    }
+
 }

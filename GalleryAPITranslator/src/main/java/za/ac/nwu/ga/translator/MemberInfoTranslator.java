@@ -11,4 +11,8 @@ public interface MemberInfoTranslator
     MemberInfoDto create(MemberInfoDto memberInfoDto);
 
     MemberInfoDto getMemberById(Long id);
+
+    MemberInfoDto updateMember(Long memberId, String newMemberFName, String newMemberLName, String newMemberEmail);
+
+    MemberInfoDto deleteMember(Long memberId);
 }

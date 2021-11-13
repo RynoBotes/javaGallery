@@ -26,4 +26,16 @@ public class FetchMemberFlowImpl implements FetchMemberFlow
     public List<MemberInfoDto> getAllMembers() {
         return memberInfoTranslator.getAllMembers();
     }
+
+    @Override
+    public MemberInfoDto getMemberById(Long id) {
+        return memberInfoTranslator.getMemberById(id);
+    }
+
+    @Override
+    public MemberInfoDto deleteMember(Long memberId) {
+        return memberInfoTranslator.deleteMember(memberId);
+    }
+
+
 }
