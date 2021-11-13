@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "MEMBERINFO")
+@Table(name = "MEMBERINFO", schema = "dbo")
 public class MemberInfo implements Serializable
 {
     private static final long serialVersionUID = 7383951001328901769L;
@@ -26,8 +26,16 @@ public class MemberInfo implements Serializable
     public MemberInfo() {
     }
 
+    public MemberInfo(Long memberId, String memberFName, String memberLName, String memberEmail) {
+        this.memberId = memberId;
+        this.memberFName = memberFName;
+        this.memberLName = memberLName;
+        this.memberEmail = memberEmail;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY , generator = "Member_id_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "member_id")
+//    @SequenceGenerator(name = "member_id", sequenceName = "member_id_sequence", allocationSize = 1)
     @Column(name = "Id")
     public Long getId() {
         return id;

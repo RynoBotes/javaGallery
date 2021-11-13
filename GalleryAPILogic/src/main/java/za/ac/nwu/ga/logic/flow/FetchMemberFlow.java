@@ -7,4 +7,8 @@ import java.util.List;
 public interface FetchMemberFlow
 {
     List<MemberInfoDto> getAllMembers();
+
+    MemberInfoDto getMemberById(Long id);
+
+    MemberInfoDto deleteMember(Long memberId);
 }
