@@ -1,8 +1,10 @@
 package za.ac.nwu.ga.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ga.domain.persistence.MemberInfo;
+import za.ac.nwu.ga.domain.persistence.Photo;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ public class PhotoDto implements Serializable
 {
     private static final long serialVersionUID = 2838658629784498688L;
     private Long photoId;
+    private Long memberId;
     private String blobLocation;
     private LocalDate dateStored;
     private String photoName;
@@ -25,6 +28,24 @@ public class PhotoDto implements Serializable
         this.dateStored = dateStored;
         this.photoName = photoName;
         this.photoDiscription = photoDiscription;
+    }
+
+    public PhotoDto(Long photoId, Long memberId, String blobLocation, LocalDate dateStored, String photoName, String photoDiscription) {
+        this.photoId = photoId;
+        this.memberId = memberId;
+        this.blobLocation = blobLocation;
+        this.dateStored = dateStored;
+        this.photoName = photoName;
+        this.photoDiscription = photoDiscription;
+    }
+
+    public PhotoDto(Photo photo)
+    {
+        this.photoId = photo.getPhotoId();
+        this.memberId = photo.getMemberInfo().getMemberId();
+        this.blobLocation = photo.getBlobLocation();
+        this.dateStored = photo.getDateStored();
+        this.photoDiscription = photo.getPhotoDiscription();
     }
 
     public PhotoDto() {
@@ -82,6 +103,14 @@ public class PhotoDto implements Serializable
         return photoDiscription;
     }
 
+    public Long getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
+    }
+
     public void setPhotoId(Long photoId) {
         this.photoId = photoId;
     }
@@ -100,6 +129,12 @@ public class PhotoDto implements Serializable
 
     public void setPhotoDiscription(String photoDiscription) {
         this.photoDiscription = photoDiscription;
+    }
+
+    @JsonIgnore
+    public Photo buildPhotoDto(MemberInfo memberInfo)
+    {
+        return new Photo(this.getPhotoId(), memberInfo,this.getBlobLocation(),this.getDateStored(),this.getPhotoName(),this.getPhotoDiscription()) ;
     }
 
     @Override

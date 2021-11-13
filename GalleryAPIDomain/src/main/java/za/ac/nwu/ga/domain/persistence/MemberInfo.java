@@ -2,7 +2,9 @@ package za.ac.nwu.ga.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "MEMBERINFO", schema = "dbo")
@@ -14,6 +16,7 @@ public class MemberInfo implements Serializable
     private String memberFName;
     private String memberLName;
     private String memberEmail;
+    List<Photo> photoSet;
 
     public MemberInfo(Long id, Long memberId, String memberFName, String memberLName, String memberEmail) {
         this.id = id;
@@ -59,6 +62,15 @@ public class MemberInfo implements Serializable
     @Column(name = "MEMBEREMAIL")
     public String getMemberEmail() {
         return memberEmail;
+    }
+
+    @OneToMany(targetEntity = Photo.class,fetch = FetchType.LAZY, mappedBy = "memberInfo")
+    public List<Photo> getPhotoSet() {
+        return photoSet;
+    }
+
+    public void setPhotoSet(List<Photo> photoSet) {
+        this.photoSet = photoSet;
     }
 
     public void setId(Long id) {
