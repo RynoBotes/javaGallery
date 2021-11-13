@@ -3,6 +3,7 @@ package za.ac.nwu.ga.logic.flow.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ga.domain.dto.MemberInfoDto;
+import za.ac.nwu.ga.domain.persistence.MemberInfo;
 import za.ac.nwu.ga.logic.flow.FetchMemberFlow;
 import za.ac.nwu.ga.translator.MemberInfoTranslator;
 
@@ -35,6 +36,11 @@ public class FetchMemberFlowImpl implements FetchMemberFlow
     @Override
     public MemberInfoDto deleteMember(Long memberId) {
         return memberInfoTranslator.deleteMember(memberId);
+    }
+
+    @Override
+    public MemberInfo getMemberdbEntityById(Long memberId) {
+        return memberInfoTranslator.getMemberdbEntityById(memberId);
     }
 
 

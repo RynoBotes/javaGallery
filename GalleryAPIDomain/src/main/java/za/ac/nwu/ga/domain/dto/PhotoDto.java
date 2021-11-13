@@ -16,7 +16,7 @@ public class PhotoDto implements Serializable
 {
     private static final long serialVersionUID = 2838658629784498688L;
     private Long photoId;
-    private Long memberId;
+    private Long id;
     private String blobLocation;
     private LocalDate dateStored;
     private String photoName;
@@ -30,22 +30,23 @@ public class PhotoDto implements Serializable
         this.photoDiscription = photoDiscription;
     }
 
-    public PhotoDto(Long photoId, Long memberId, String blobLocation, LocalDate dateStored, String photoName, String photoDiscription) {
-        this.photoId = photoId;
-        this.memberId = memberId;
-        this.blobLocation = blobLocation;
-        this.dateStored = dateStored;
-        this.photoName = photoName;
-        this.photoDiscription = photoDiscription;
-    }
+//    public PhotoDto(Long photoId, Long id, String blobLocation, LocalDate dateStored, String photoName, String photoDiscription) {
+//        this.photoId = photoId;
+//        this.id = id;
+//        this.blobLocation = blobLocation;
+//        this.dateStored = dateStored;
+//        this.photoName = photoName;
+//        this.photoDiscription = photoDiscription;
+//    }
 
     public PhotoDto(Photo photo)
     {
         this.photoId = photo.getPhotoId();
-        this.memberId = photo.getMemberInfo().getMemberId();
+        this.id = photo.getMemberInfo().getId();
         this.blobLocation = photo.getBlobLocation();
         this.dateStored = photo.getDateStored();
         this.photoDiscription = photo.getPhotoDiscription();
+        this.photoName = photo.getPhotoName();
     }
 
     public PhotoDto() {
@@ -56,8 +57,7 @@ public class PhotoDto implements Serializable
             name = "Photo ID",
             notes = "The ID of the Photo",
             dataType = "java.lang.Long",
-            example = "125684",
-            required = true)
+            example = "125684")
     public Long getPhotoId() {
         return photoId;
     }
@@ -103,12 +103,12 @@ public class PhotoDto implements Serializable
         return photoDiscription;
     }
 
-    public Long getMemberId() {
-        return memberId;
+    public Long getId() {
+        return id;
     }
 
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setPhotoId(Long photoId) {

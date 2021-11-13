@@ -85,4 +85,17 @@ public class MemberInfoTranslatorImpl implements MemberInfoTranslator
         }
 
     }
+
+    @Override
+    public MemberInfo getMemberdbEntityById(Long id) {
+        try{
+            return memberInfoRepository.getOne(id);
+
+        }catch (Exception e)
+        {
+            throw new RuntimeException("Member not fetched from DB",e);
+        }
+    }
+
+
 }

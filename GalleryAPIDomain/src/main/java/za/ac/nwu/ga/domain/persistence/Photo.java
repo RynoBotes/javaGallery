@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PHOTO")
+@Table(name = "PHOTO",schema = "dbo")
 public class Photo implements Serializable
 {
 
@@ -32,33 +32,33 @@ public class Photo implements Serializable
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY , generator = "Photo_id_generator")
-    @Column(name = "PhotoId")
+    @Column(name = "PHOTOID")
     public Long getPhotoId() {
         return photoId;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memberID")
+    @JoinColumn(name = "MEMBERID")
     public MemberInfo getMemberInfo() {
         return memberInfo;
     }
 
-    @Column(name = "blobLocation")
+    @Column(name = "BLOBLOCATION")
     public String getBlobLocation() {
         return blobLocation;
     }
 
-    @Column(name = "dateStored")
+    @Column(name = "DATESTORED")
     public LocalDate getDateStored() {
         return dateStored;
     }
 
-    @Column(name = "photoName")
+    @Column(name = "PHOTONAME")
     public String getPhotoName() {
         return photoName;
     }
 
-    @Column(name = "photoDiscription")
+    @Column(name = "PHOTODISCRIPTION")
     public String getPhotoDiscription() {
         return photoDiscription;
     }
