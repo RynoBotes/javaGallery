@@ -1,5 +1,9 @@
-za/ac/nwu/ga/logic/flow/impl/FetchMemberFlowImpl.class
-za/ac/nwu/ga/logic/flow/FetchMemberFlow.class
-za/ac/nwu/ga/logic/config/LogicConfig.class
-za/ac/nwu/ga/logic/flow/CreateMemberFlow.class
-za/ac/nwu/ga/logic/flow/impl/CreateMemberFlowImpl.class
+za\ac\nwu\ga\logic\flow\FetchMemberFlow.class
+za\ac\nwu\ga\logic\flow\FetchPhotoFlow.class
+za\ac\nwu\ga\logic\flow\CreateMemberFlow.class
+za\ac\nwu\ga\logic\flow\impl\FetchPhotoFlowImpl.class
+za\ac\nwu\ga\logic\flow\impl\CreatePhotoFlowImpl.class
+za\ac\nwu\ga\logic\config\LogicConfig.class
+za\ac\nwu\ga\logic\flow\CreatePhotoFlow.class
+za\ac\nwu\ga\logic\flow\impl\FetchMemberFlowImpl.class
+za\ac\nwu\ga\logic\flow\impl\CreateMemberFlowImpl.class

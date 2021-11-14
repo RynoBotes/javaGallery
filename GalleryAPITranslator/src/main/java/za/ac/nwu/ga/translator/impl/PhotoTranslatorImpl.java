@@ -51,4 +51,32 @@ public class PhotoTranslatorImpl implements PhotoTranslator
         }
         return photoDtos;
     }
+
+    @Override
+    public PhotoDto getPhotoById(Long photoId) {
+       try{
+           Photo photo = photoRepository.getPhotoById(photoId);
+           return new PhotoDto(photo);
+
+       }catch (Exception e)
+       {
+           throw new RuntimeException("Photo not retrieved",e);
+       }
+
+    }
+
+    @Override
+    public PhotoDto deletePhoto(Long photoId) {
+        try{
+            Photo photo = photoRepository.getPhotoById(photoId);
+            photoRepository.delete(photo);
+
+            return new PhotoDto(photo);
+
+        }catch (Exception e)
+        {
+            throw new RuntimeException("Delete was not successful",e);
+        }
+    }
+
 }

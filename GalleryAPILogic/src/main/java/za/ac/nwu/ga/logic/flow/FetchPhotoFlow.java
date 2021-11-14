@@ -10,7 +10,7 @@ public interface FetchPhotoFlow
 {
     List<PhotoDto> getAllPhotos();
 
-//    MemberInfoDto getPhotoById(Long photoId);
+    PhotoDto getPhotoById(Long photoId);
 
     PhotoDto deletePhoto(Long photoId);
 

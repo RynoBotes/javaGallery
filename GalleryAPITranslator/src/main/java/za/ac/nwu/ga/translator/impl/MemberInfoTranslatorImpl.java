@@ -81,7 +81,7 @@ public class MemberInfoTranslatorImpl implements MemberInfoTranslator
             return new MemberInfoDto(memberInfo);
         }catch (Exception e)
         {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Unable to delete member from the db",e);
         }
 
     }

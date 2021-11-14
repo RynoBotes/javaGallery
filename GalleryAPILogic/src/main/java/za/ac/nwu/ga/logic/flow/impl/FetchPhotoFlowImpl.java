@@ -25,7 +25,13 @@ public class FetchPhotoFlowImpl implements FetchPhotoFlow
     }
 
     @Override
+    public PhotoDto getPhotoById(Long photoId) {
+        return photoTranslator.getPhotoById(photoId);
+    }
+
+
+    @Override
     public PhotoDto deletePhoto(Long photoId) {
-        return null;
+        return photoTranslator.deletePhoto(photoId);
     }
 }

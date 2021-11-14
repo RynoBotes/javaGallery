@@ -10,4 +10,7 @@ public interface PhotoTranslator
     Photo save(Photo photo);
 
     List<PhotoDto> getAllPhotos();
+
+    PhotoDto getPhotoById(Long photoId);
+    PhotoDto deletePhoto(Long photoId);
 }

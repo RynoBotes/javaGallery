@@ -1,2 +1,3 @@
-za/ac/nwu/ga/repo/config/RepositoryConfig.class
-za/ac/nwu/ga/repo/persistence/MemberInfoRepository.class
+za\ac\nwu\ga\repo\config\RepositoryConfig.class
+za\ac\nwu\ga\repo\persistence\MemberInfoRepository.class
+za\ac\nwu\ga\repo\persistence\PhotoRepository.class
