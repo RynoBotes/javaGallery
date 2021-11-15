@@ -1,6 +1,22 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import {  FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
+import { BASE_API_URL } from 'src/environments/environment';
 import { GalleryPage } from '../gallery/gallery.page';
+
+const username = document.getElementById("username");
+
+let members = [];
+
+fetch(BASE_API_URL+"/member-info/all")
+.then(res =>{
+  return res.json();
+})
+.then(loadedMembers =>{
+  console.log(loadedMembers.payload);
+  members = loadedMembers
+})
+
 
 @Component({
   selector: 'app-login',
@@ -9,7 +25,18 @@ import { GalleryPage } from '../gallery/gallery.page';
 })
 export class LoginPage {
 
-  constructor(private modalController:ModalController){}
+  myform: FormGroup;
+
+
+  constructor(private modalController:ModalController , public navParams: NavParams){
+    this.myform = new FormGroup({
+      
+        email: new FormControl('',Validators.email),
+        password: new FormControl('',[Validators.required,Validators.minLength(6)])
+
+      
+    })
+    }
 
 
   back(){

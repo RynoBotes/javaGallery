@@ -149,14 +149,25 @@
     text-align: center;
     padding-bottom: 10px;
   }
+  .login-content{
+    margin-top: 1rem;
+  }
   .login-text{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: underline;
     font-size: 1.5rem;
-    padding-top: 1;
+    
+    
   }
   .input-box{
     border-color: slategray;
     background-color: aliceblue;
+    padding-top: 0.10rem;
+    margin-top: 0.5rem;
+   
 
+  }
+  .popup{
+    margin-bottom: auto;
+    margin-top: 15%;
   }

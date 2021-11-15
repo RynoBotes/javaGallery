@@ -14,4 +14,5 @@ public interface FetchMemberFlow
     MemberInfoDto deleteMember(Long memberId);
 
     MemberInfo getMemberdbEntityById(Long memberId);
+
 }

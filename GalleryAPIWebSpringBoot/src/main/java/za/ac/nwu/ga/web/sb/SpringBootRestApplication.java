@@ -6,6 +6,10 @@ import java.io.*;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 @SpringBootApplication
 public class SpringBootRestApplication
 {
@@ -15,14 +19,17 @@ public class SpringBootRestApplication
 
         SpringApplication.run(SpringBootRestApplication.class, args);
 
-//        String blobConnectionString = "DefaultEndpointsProtocol=https;AccountName=photogalleryrynobotes;AccountKey=rnfX8iDa9ZmHnRNR/1V+Aoq7o3ReWjXCmeQS/FqCynKWdDSReJbSJTL9je/gu+AlO46ZKStC+WQPzGugra2Biw==;EndpointSuffix=core.windows.net";
-//
-//        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(blobConnectionString).buildClient();
-//
-//        String containerName = "quickstartblobs" + java.util.UUID.randomUUID();
-//
-//        BlobContainerClient containerClient = blobServiceClient.createBlobContainer(containerName);
 
+    }
 
+    @Bean
+    public WebMvcConfigurer corsConfiguree()
+    {
+        return new WebMvcConfigurer() {
+        @Override
+        public void addCorsMappings(CorsRegistry registry)
+        {
+            registry.addMapping("/**");
+        }};
     }
 }

@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.hibernate.annotations.Proxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("member-info")
+
 public class MemberInfoController
 {
     private final FetchMemberFlow fetchMemberFlow;
@@ -30,6 +32,7 @@ public class MemberInfoController
     }
 
     @GetMapping("/all")
+    //    @RuequestMapping(produces = "application/json")
     @ApiOperation(value = "Get all configured members",notes = "Returns a list of members")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Members retrieved",response = GeneralResponse.class),
@@ -132,7 +135,6 @@ public class MemberInfoController
         GeneralResponse<MemberInfoDto> response = new GeneralResponse<>(true, member);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 
 
 }

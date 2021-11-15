@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <div class="stars">
     <div class="star"></div>
     <div class="star"></div>
@@ -64,16 +64,25 @@
   </div>
   <ion-card class = "popup">
     <ion-button (click) = "back()" horizontal = "center" >Back</ion-button>
-    <div class="login-box">
+    <form [formgroup] = "loginform">
       <div class="login-content">
-        <p class="login-text">Username:</p>
-        <input class="input-box" type="email" id="usernameText" placeholder="rynob1998@gmail.com">
+        <ion-item>
+        <ion-label floating>Username:</ion-label>
+       <ion-input  type="email"  placeholder="rynob1998@gmail.com"
+        id="username"></ion-input>
+      </ion-item>
       </div>
       <div class="login-content">
-        <p  class="login-text">Password:</p>
-        <input class="input-box" type="password" id="usernameText" placeholder="reallyLong1!">
+        <ion-item>
+        <ion-label floating>Password:</ion-label>
+         <ion-input type="password" name="password" 
+        placeholder="reallyLong1!" id="password"></ion-input>
+      </ion-item>
       </div>
-    </div>
+      <div class="login-content">
+        <ion-button type="submit">Submit</ion-button>
+      </div>
+    </form>
 
 
   </ion-card>

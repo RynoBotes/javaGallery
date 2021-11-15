@@ -18,4 +18,6 @@ public interface MemberInfoTranslator
     MemberInfoDto deleteMember(Long memberId);
 
     MemberInfo getMemberdbEntityById(Long id);
+
+
 }
