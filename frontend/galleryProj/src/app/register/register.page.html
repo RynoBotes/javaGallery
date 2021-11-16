@@ -68,37 +68,37 @@
     <form>
       <div class="login-content">
         <ion-item>
-          <ion-label id = "usernameText">cellpone:</ion-label>
-           <ion-input  type="email"  placeholder="Leave the 0 ex. 834122488"></ion-input>
+          <ion-label >cellpone:</ion-label>
+           <input id = "memberId" type="number"  placeholder="Leave the 0 ex. 834122488">
       </ion-item>
       </div>
       <div class="login-content">
         <ion-item>
           <ion-label id = "usernameText">Username:</ion-label>
-           <ion-input  type="email"  placeholder="rynob1998@gmail.com"></ion-input>
+           <input id="memberEmail"  type="email"  placeholder="rynob1998@gmail.com">
       </ion-item>
       </div>
       <div class="login-content">
         <ion-item>
-          <ion-label id = "memberFName">First Name:</ion-label>
-           <ion-input  type="text"  placeholder="Ryno"></ion-input>
+          <ion-label >First Name:</ion-label>
+           <input id = "memberFName" type="text"  placeholder="Ryno">
       </ion-item>
       </div>
       <div class="login-content">
         <ion-item>
-          <ion-label id = "memberLName">Last Name:</ion-label>
-           <ion-input  type="text"  placeholder="Botes"></ion-input>
+          <ion-label >Last Name:</ion-label>
+           <input id = "memberLName" type="text"  placeholder="Botes">
       </ion-item>
       </div>
       <div class="login-content">
         <ion-item>
         <ion-label floating>Password:</ion-label>
-         <ion-input type="password" name="password" 
-        placeholder="reallyLong1!" id="password" #password></ion-input>
+         <input type="password" name="password" 
+        placeholder="reallyLong1!" id="password" #password>
       </ion-item>
       </div>
       <div class="login-content">
-        <ion-button (click) = "getMemberEmail(username.value,password.value)" type="submit" id = "">Register</ion-button>
+        <ion-button (click)="addmember()" type="submit" id = "registerbtn">Register</ion-button>
       </div>
      
     </form>
