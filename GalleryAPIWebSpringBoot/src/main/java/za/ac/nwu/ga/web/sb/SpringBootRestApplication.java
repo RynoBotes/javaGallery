@@ -23,7 +23,7 @@ public class SpringBootRestApplication
     }
 
     @Bean
-    public WebMvcConfigurer corsConfiguree()
+    public WebMvcConfigurer corsConfigurer()
     {
         return new WebMvcConfigurer() {
         @Override

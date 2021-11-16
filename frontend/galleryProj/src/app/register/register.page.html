@@ -1,9 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Login
+      Register
     </ion-title>
-    <ion-button (click) = "gallery()" horizontal="end" slot="end" >Gallery</ion-button>
+    <ion-button (click) = "home()" horizontal="end" slot="end" >Home</ion-button>
+
     <ion-button (click) = "back()" horizontal="end" slot="end" >Back</ion-button>
 
   </ion-toolbar>
@@ -67,9 +68,26 @@
     <form>
       <div class="login-content">
         <ion-item>
+          <ion-label id = "usernameText">cellpone:</ion-label>
+           <ion-input  type="email"  placeholder="Leave the 0 ex. 834122488"></ion-input>
+      </ion-item>
+      </div>
+      <div class="login-content">
+        <ion-item>
           <ion-label id = "usernameText">Username:</ion-label>
-           <ion-input  type="email"  placeholder="rynob1998@gmail.com"
-        #username></ion-input>
+           <ion-input  type="email"  placeholder="rynob1998@gmail.com"></ion-input>
+      </ion-item>
+      </div>
+      <div class="login-content">
+        <ion-item>
+          <ion-label id = "memberFName">First Name:</ion-label>
+           <ion-input  type="text"  placeholder="Ryno"></ion-input>
+      </ion-item>
+      </div>
+      <div class="login-content">
+        <ion-item>
+          <ion-label id = "memberLName">Last Name:</ion-label>
+           <ion-input  type="text"  placeholder="Botes"></ion-input>
       </ion-item>
       </div>
       <div class="login-content">
@@ -80,20 +98,12 @@
       </ion-item>
       </div>
       <div class="login-content">
-        <ion-button (click) = "getMemberEmail(username.value,password.value)" type="submit" id = "">Submit</ion-button>
+        <ion-button (click) = "getMemberEmail(username.value,password.value)" type="submit" id = "">Register</ion-button>
       </div>
-      <div class="login-content">
-        <p >Don't have an account?</p>
-        <a (click) = "Register()" id="registeranc">Register here!</a>
-      </div>
+     
     </form>
 
 
   </ion-card>
-  
 
-  <!-- <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div> -->
 </ion-content>

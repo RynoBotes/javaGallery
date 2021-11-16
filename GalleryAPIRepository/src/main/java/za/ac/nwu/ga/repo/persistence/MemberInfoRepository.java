@@ -23,4 +23,5 @@ public interface MemberInfoRepository extends JpaRepository<MemberInfo,Long>
             "   WHERE memberId = :memberId ",nativeQuery = true)
     MemberInfo updateMember(Long memberId, String newMemberFName, String newMemberLName, String newMemberEmail);
 
+
 }

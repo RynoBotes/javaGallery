@@ -62,7 +62,7 @@ public class MemberInfoController
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @GetMapping("{memberId}")
+    @GetMapping("member-id/{memberId}")
     @ApiOperation(value = "Fetch specified member ",notes = "Fetch specified member  corresponding to memberId")
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "Member Returned"),
@@ -117,7 +117,7 @@ public class MemberInfoController
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @DeleteMapping("{memberId}")
+    @DeleteMapping("delete-member/{memberId}")
     @ApiOperation(value = "Delete specified member ",notes = "Delete specified member  corresponding to memberId")
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "Member Deleted"),
@@ -135,6 +135,8 @@ public class MemberInfoController
         GeneralResponse<MemberInfoDto> response = new GeneralResponse<>(true, member);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+
 
 
 }
