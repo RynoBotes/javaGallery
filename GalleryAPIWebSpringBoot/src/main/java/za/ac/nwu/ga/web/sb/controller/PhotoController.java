@@ -1,5 +1,6 @@
 package za.ac.nwu.ga.web.sb.controller;
 
+import com.azure.storage.blob.BlobClientBuilder;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
@@ -8,17 +9,22 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.nwu.ga.domain.dto.MemberInfoDto;
+import org.springframework.web.multipart.MultipartFile;
 import za.ac.nwu.ga.domain.dto.PhotoDto;
-import za.ac.nwu.ga.domain.persistence.Photo;
 import za.ac.nwu.ga.domain.service.GeneralResponse;
 import za.ac.nwu.ga.logic.flow.CreatePhotoFlow;
 import za.ac.nwu.ga.logic.flow.FetchPhotoFlow;
+//import za.ac.nwu.ga.web.sb.exception.AzureBlobAdapter;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("photo-map")
@@ -26,13 +32,14 @@ public class PhotoController
 {
     private final CreatePhotoFlow createPhotoFlow;
     private final FetchPhotoFlow fetchPhotoFlow;
-    String blobConnectionString = "DefaultEndpointsProtocol=https;AccountName=photogalleryrynobotes;AccountKey=rnfX8iDa9ZmHnRNR/1V+Aoq7o3ReWjXCmeQS/FqCynKWdDSReJbSJTL9je/gu+AlO46ZKStC+WQPzGugra2Biw==;EndpointSuffix=core.windows.net";
+//    private final AzureBlobAdapter azureAdapter;
 
 
     @Autowired
-    public PhotoController(CreatePhotoFlow createPhotoFlow, FetchPhotoFlow fetchPhotoFlow) {
+    public PhotoController(CreatePhotoFlow createPhotoFlow, FetchPhotoFlow fetchPhotoFlow/*AzureBlobAdapter azureAdapter*/) {
         this.createPhotoFlow = createPhotoFlow;
         this.fetchPhotoFlow = fetchPhotoFlow;
+//        this.azureAdapter = azureAdapter;
     }
 
     @PostMapping("")
@@ -46,11 +53,6 @@ public class PhotoController
             @RequestBody PhotoDto photoDto) {
         PhotoDto photo = createPhotoFlow.create(photoDto);
         GeneralResponse<PhotoDto> response = new GeneralResponse<>(true, photo);
-
-        String containerName = "memberBlob" + java.util.UUID.randomUUID();
-        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(blobConnectionString).buildClient();
-        BlobContainerClient containerClient = blobServiceClient.createBlobContainer(containerName);
-
         return new ResponseEntity<>(response, HttpStatus.CREATED);
 
 
@@ -112,4 +114,26 @@ public class PhotoController
     }
 
 
+//    @PostMapping(path = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+//    public Map<String, String> uploadFile(@RequestPart(value = "file", required = true) MultipartFile files)  {
+//        String name = azureAdapter.upload(files, "prefix");
+//        Map<String, String> result = new HashMap<>();
+//        result.put("key", name);
+//        return result;
+//    }
+//
+//    @GetMapping(path = "/download")
+//    public ResponseEntity<ByteArrayResource> uploadFile(@RequestParam(value = "file") String file) throws IOException {
+//        byte[] data = azureAdapter.getFile(file);
+//        ByteArrayResource resource = new ByteArrayResource(data);
+//
+//        return ResponseEntity
+//                .ok()
+//                .contentLength(data.length)
+//                .header("Content-type", "application/octet-stream")
+//                .header("Content-disposition", "attachment; filename=\"" + file + "\"")
+//                .body(resource);
+//
+//    }
 }
+

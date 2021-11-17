@@ -1,5 +1,6 @@
 package za.ac.nwu.ga.translator.impl;
 
+import com.azure.storage.blob.BlobClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ga.domain.dto.MemberInfoDto;
@@ -21,6 +22,7 @@ public class PhotoTranslatorImpl implements PhotoTranslator
     @Autowired
     public PhotoTranslatorImpl(PhotoRepository photoRepository) {
         this.photoRepository = photoRepository;
+
     }
 
 

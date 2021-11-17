@@ -17,7 +17,6 @@ import za.ac.nwu.ga.translator.MemberInfoTranslator;
 public class CreateMemberFlowImpl implements CreateMemberFlow
 {
 
-    String blobConnectionString = "DefaultEndpointsProtocol=https;AccountName=photogalleryrynobotes;AccountKey=rnfX8iDa9ZmHnRNR/1V+Aoq7o3ReWjXCmeQS/FqCynKWdDSReJbSJTL9je/gu+AlO46ZKStC+WQPzGugra2Biw==;EndpointSuffix=core.windows.net";
 
     private final MemberInfoTranslator memberInfoTranslator;
 

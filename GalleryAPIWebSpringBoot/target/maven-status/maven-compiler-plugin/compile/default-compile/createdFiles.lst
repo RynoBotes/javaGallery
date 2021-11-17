@@ -1,5 +1,8 @@
+za\ac\nwu\ga\web\sb\config\AzureBlobStorageConfig.class
 za\ac\nwu\ga\web\sb\controller\PhotoController.class
+za\ac\nwu\ga\web\sb\exception\AzureBlobAdapter.class
 za\ac\nwu\ga\web\sb\config\WebConfig.class
 za\ac\nwu\ga\web\sb\controller\MemberInfoController.class
 za\ac\nwu\ga\web\sb\SpringBootRestApplication.class
+za\ac\nwu\ga\web\sb\SpringBootRestApplication$1.class
 za\ac\nwu\ga\web\sb\config\SwaggerConfiguration.class
