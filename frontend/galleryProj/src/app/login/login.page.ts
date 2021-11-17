@@ -4,6 +4,7 @@ import { ModalController, NavController, NavParams,ToastController } from '@ioni
 import { BASE_API_URL } from 'src/environments/environment';
 import { GalleryPage } from '../gallery/gallery.page';
 import { RegisterPage } from '../register/register.page';
+import { ImageUploadPage } from '../image-upload/image-upload.page';
 
 
 
@@ -41,7 +42,7 @@ fetch(BASE_API_URL+"/member-info/all")
     
   });  
 }).catch(err =>{
-  console.log(err);
+  // console.log(err);
 });
 // console.log(members);
 
@@ -70,7 +71,8 @@ export class LoginPage {
   back(){
    this.modalController.dismiss();
  }
- 
+
+
  async gallery(){
  
   const modal = await this.modalController.create({
@@ -124,7 +126,8 @@ async presentSuccessToast() {
 
    for (let index = 3; index < availableMembers.length; index = index+4) {
     const element = availableMembers[index];
-    console.log(loggedin);
+    console.log(JSON.stringify(element));
+    
 
     if(currValArr[0] == availableMembers[index] && password == "Romeo")
    {
