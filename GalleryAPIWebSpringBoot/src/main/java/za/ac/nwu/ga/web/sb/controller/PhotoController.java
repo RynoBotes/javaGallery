@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
 @RequestMapping("photo-map")
 public class PhotoController
@@ -94,7 +95,7 @@ public class PhotoController
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @DeleteMapping("{photoId}")
+    @RequestMapping("delete/{photoId}")
     @ApiOperation(value = "Delete specified photo ",notes = "Delete specified photo corresponding to photoId")
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "photo Deleted"),
