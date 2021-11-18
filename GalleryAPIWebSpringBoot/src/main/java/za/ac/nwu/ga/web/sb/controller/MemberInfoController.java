@@ -117,7 +117,7 @@ public class MemberInfoController
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @DeleteMapping("delete-member/{memberId}")
+    @RequestMapping("delete-member/{memberId}")
     @ApiOperation(value = "Delete specified member ",notes = "Delete specified member  corresponding to memberId")
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "Member Deleted"),
