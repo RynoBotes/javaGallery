@@ -65,6 +65,20 @@ let member ={
 
 }
 
+deleteMember = () =>{
+  let id;
+
+  id = (<HTMLInputElement>document.getElementById('memberId')).value,
+
+
+  fetch(BASE_API_URL+"/member-info/delete-member/"+id, {headers: {
+  'Content-type': 'application/json; charset=UTF-8'
+}
+})
+.then(res => res.text()) // or res.json()
+.then(res => console.log(res))
+}
+
 }
 
 

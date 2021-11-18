@@ -103,7 +103,35 @@
      
     </form>
 
+    </ion-card>
+      <ion-card class = "popup">
+        <!-- <ion-button (click) = "back()"  >Back</ion-button> -->
+        <form>
+          <div class="login-content">
+            <!-- <ion-item> -->
+              <ion-label >cellphone:</ion-label>
+              <div>
+    
+              </div>
+               <input id = "memberId" type="number"  placeholder="Id of the photo in the db">
+          <!-- </ion-item> -->
+          </div>
+          
+          <!-- </ion-item> -->
+          
+          <div class="login-content">
+            <ion-button (click)="deleteMember()" type="submit" id = "uploadbtn">Delete account</ion-button>
+          </div>
+         
+        </form>
+    
+    
+      </ion-card>
+          
+     
+    
 
-  </ion-card>
+
+  
 
 </ion-content>
