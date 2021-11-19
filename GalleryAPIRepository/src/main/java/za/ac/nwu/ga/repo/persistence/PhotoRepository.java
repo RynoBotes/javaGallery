@@ -8,6 +8,7 @@ import za.ac.nwu.ga.domain.persistence.Photo;
 @Repository
 public interface PhotoRepository extends JpaRepository<Photo,Long>
 {
+
     @Query(value = " SELECT " +
             "           * " +
             "          FROM " +

@@ -83,6 +83,11 @@
            <input id="bloblocation"  type="text"  placeholder="https://za.pinterest.com/pin/593630794626814199/">
       <!-- </ion-item> -->
       </div>
+      <form [FormGroup] = "uploadForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="file" name="profile" (change)="onFileSelect($event)" />
+    </div>
+    </form>
       <div class="login-content">
         <!-- <ion-item> -->
           <ion-label >Photo Name:</ion-label>

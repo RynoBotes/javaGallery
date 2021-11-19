@@ -19,6 +19,7 @@ import za.ac.nwu.ga.domain.dto.PhotoDto;
 import za.ac.nwu.ga.domain.service.GeneralResponse;
 import za.ac.nwu.ga.logic.flow.CreatePhotoFlow;
 import za.ac.nwu.ga.logic.flow.FetchPhotoFlow;
+import za.ac.nwu.ga.repo.persistence.PhotoRepository;
 //import za.ac.nwu.ga.web.sb.exception.AzureBlobAdapter;
 
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class PhotoController
     public ResponseEntity<GeneralResponse<PhotoDto>> create(
             @ApiParam(value = "Request body to create a new member",required = true)
             @RequestBody PhotoDto photoDto) {
-        PhotoDto photo = createPhotoFlow.create(photoDto);
+        PhotoDto photo  = createPhotoFlow.create(photoDto);
         GeneralResponse<PhotoDto> response = new GeneralResponse<>(true, photo);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
 
@@ -114,27 +115,10 @@ public class PhotoController
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-
-//    @PostMapping(path = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-//    public Map<String, String> uploadFile(@RequestPart(value = "file", required = true) MultipartFile files)  {
-//        String name = azureAdapter.upload(files, "prefix");
-//        Map<String, String> result = new HashMap<>();
-//        result.put("key", name);
-//        return result;
-//    }
-//
-//    @GetMapping(path = "/download")
-//    public ResponseEntity<ByteArrayResource> uploadFile(@RequestParam(value = "file") String file) throws IOException {
-//        byte[] data = azureAdapter.getFile(file);
-//        ByteArrayResource resource = new ByteArrayResource(data);
-//
-//        return ResponseEntity
-//                .ok()
-//                .contentLength(data.length)
-//                .header("Content-type", "application/octet-stream")
-//                .header("Content-disposition", "attachment; filename=\"" + file + "\"")
-//                .body(resource);
-//
-//    }
+    @PostMapping("/uploadImage")
+    public String uploadImage(MultipartFile imageFile) throws IOException {
+        createPhotoFlow.saveImage(imageFile);
+        return "Success";
+    }
 }
 
