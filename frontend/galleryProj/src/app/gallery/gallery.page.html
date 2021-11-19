@@ -11,9 +11,9 @@
 <ion-content text-align = center>
   <ion-grid class="grid-colour">
     <ion-row>
-    <ion-col  col-6 col-md-4 col-xl-3 >
+      <ion-col  col-6 col-md-4 col-xl-3 *ngFor="let img of images; let i = index" tappable (click) = "openPreview(i)">
         <div class="image-container"  zoom="true"> 
-          <img class = "img" src="assets/images/1.JPG" (click)="home()" style="width:150px; height:150px; border-radius: 15px 50px; background-size: cover;" > 
+          <img class = "img" id="imageId" [src]="img" style="width:150px; height:150px; border-radius: 15px 50px; background-size: cover;" >
           <!-- <img src="assets/images/2.JPG" alt="{{img.imagesPath}}" style="width:150px; height:150px; border-radius: 15px 50px; background-size: cover;" >  -->
 
         </div> 

@@ -10,3 +10,9 @@ ion-content{
 .img:hover{
 cursor: pointer;
 }
+.image-container {
+    min-height: 150px;
+    min-width: 170px;
+    border-radius: 15px 50px;
+    background-size: cover;
+}

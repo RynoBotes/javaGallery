@@ -20,9 +20,9 @@ let currValArr = [];
 let currVal = "";
 let passwordInsert = "";
 
-fetch(BASE_API_URL+"/member-info/all")
-
-.then(res =>{
+fetch(BASE_API_URL+"member-info/all")
+.then(res =>
+{
   return res.json();
 }).then(loadedMembers =>
 {  
@@ -31,20 +31,14 @@ fetch(BASE_API_URL+"/member-info/all")
      const formattedEmail = 
     {
       memberEmail: loadedMember.memberEmail
-            
     };
-    for (var memberEmail in loadedMember) {
+    for (var memberEmail in loadedMember) 
+    {
       availableMembers.push(loadedMember[memberEmail]);
-      // console.log(availableMembers);
-  }
-    // availableMembers.push(formattedEmail)
-    
-    
+    }
   });  
 }).catch(err =>{
-  // console.log(err);
 });
-// console.log(members);
 
 
 @Component({
@@ -57,36 +51,43 @@ export class LoginPage {
   myform: FormGroup;
 
 
-  constructor(private modalController:ModalController , public navParams: NavParams, private toastCtrl:ToastController){
-    this.myform = new FormGroup({
+  constructor(private modalController:ModalController , public navParams: NavParams, private toastCtrl:ToastController)
+  {
+    this.myform = new FormGroup(
+    {
       
-        email: new FormControl('',Validators.email),
-        password: new FormControl('',[Validators.required,Validators.minLength(6)])
+      email: new FormControl('',Validators.email),
+      password: new FormControl('',[Validators.required,Validators.minLength(6)])
 
       
     })
-    }
+  }
 
 
-  back(){
+  back()
+  {
    this.modalController.dismiss();
- }
+  }
 
 
- async gallery(){
+ async gallery()
+ {
  
-  const modal = await this.modalController.create({
+  const modal = await this.modalController.create(
+  {
     component: GalleryPage,
     cssClass:'modal-fullscreen',
     id:'GalleryPage'
   });
-  this.presentSuccessToast();
-return await modal.present();
+  this.presentSuccessToast(); 
+  return await modal.present();
 
 }
-async Register(){
+async Register()
+{
  
-  const modal = await this.modalController.create({
+  const modal = await this.modalController.create(
+  {
     component: RegisterPage,
     cssClass:'modal-fullscreen',
     id:'RegisterPage'
@@ -95,8 +96,10 @@ return await modal.present();
 
 }
 
-async presentErrorToast() {
-  let toast = this.toastCtrl.create({
+async presentErrorToast() 
+{
+  let toast = this.toastCtrl.create(
+  {
     message: 'Email or password invalid!',
     duration: 3000,
     position: 'bottom',
@@ -104,8 +107,10 @@ async presentErrorToast() {
   });
   return (await toast).present();
 }
-async presentSuccessToast() {
-  let toast = this.toastCtrl.create({
+async presentSuccessToast() 
+{
+  let toast = this.toastCtrl.create(
+  {
     message: 'Logged in!',
     duration: 3000,
     position: 'bottom',
@@ -115,7 +120,8 @@ async presentSuccessToast() {
 }
 
 
- getMemberEmail(username: string, password: string){
+getMemberEmail(username: string, password: string)
+{
   let loggedin: boolean = false;
    currValArr.length = 0;
    currVal = username;
@@ -124,23 +130,24 @@ async presentSuccessToast() {
    currValArr.push(""+passwordInsert);
    console.dir(currValArr);
 
-   for (let index = 3; index < availableMembers.length; index = index+4) {
-    const element = availableMembers[index];
-    console.log(JSON.stringify(element));
+   for (let index = 3; index < availableMembers.length; index = index+4) 
+   {
+      const element = availableMembers[index];
+      console.log(JSON.stringify(element));
     
 
-    if(currValArr[0] == availableMembers[index] && password == "Romeo")
-   {
-     loggedin = true;
-    this.gallery();
-   }
+      if(currValArr[0] == availableMembers[index] && password == "Romeo")
+      {
+        loggedin = true;
+        this.gallery();
+      }
 
    }
-   if(!loggedin)
-   {
-     this.presentErrorToast();
-   }
-  }
+      if(!loggedin)
+      {
+        this.presentErrorToast();
+      }
+}
 
    
 }
