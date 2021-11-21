@@ -20,6 +20,7 @@ import java.time.LocalDate;
 @Component
 public class CreatePhotoFlowImpl implements CreatePhotoFlow
 {
+    private String imagePath;
 
     private final FetchMemberFlowImpl fetchMemberFlow;
     private final PhotoTranslatorImpl photoTranslator;
@@ -43,6 +44,10 @@ public class CreatePhotoFlowImpl implements CreatePhotoFlow
         {
             photo.setDateStored(LocalDate.now());
         }
+        if( true)
+        {
+            photo.setBlobLocation(imagePath.replace("\\","/"));
+        }
 
         Photo createdPhoto = photoTranslator.save(photo);
         return new PhotoDto(createdPhoto);
@@ -55,6 +60,7 @@ public class CreatePhotoFlowImpl implements CreatePhotoFlow
         byte[] bytes = multipartFile.getBytes();
         Path path = Paths.get(folder + multipartFile.getOriginalFilename());
         Files.write(path,bytes);
+        imagePath = path.toString();
     }
 
 

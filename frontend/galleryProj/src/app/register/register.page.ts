@@ -71,7 +71,7 @@ deleteMember = () =>{
   id = (<HTMLInputElement>document.getElementById('memberId')).value,
 
 
-  fetch(BASE_API_URL+"/member-info/delete-member/"+id, {headers: {
+  fetch(BASE_API_URL+"member-info/delete-member/981031", {headers: {
   'Content-type': 'application/json; charset=UTF-8'
 }
 })

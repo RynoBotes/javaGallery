@@ -13,18 +13,10 @@
     <ion-row>
       <ion-col  col-6 col-md-4 col-xl-3 *ngFor="let img of images; let i = index" tappable (click) = "openPreview(i)">
         <div class="image-container"  zoom="true"> 
-          <img class = "img" id="imageId" [src]="img" style="width:150px; height:150px; border-radius: 15px 50px; background-size: cover;" >
-          <!-- <img src="assets/images/2.JPG" alt="{{img.imagesPath}}" style="width:150px; height:150px; border-radius: 15px 50px; background-size: cover;" >  -->
-
+          <img class = "img" id="imageId" [src]="img" style="width:150px; height:150px; border-radius: 10px 10px; background-size: cover;" >
         </div> 
     </ion-col>
     </ion-row>
     
   </ion-grid>
-  
-  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="login()">
-      <ion-icon name="md-cloud-upload"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
 </ion-content>

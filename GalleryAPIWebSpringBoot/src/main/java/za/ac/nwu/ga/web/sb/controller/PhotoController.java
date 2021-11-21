@@ -1,9 +1,6 @@
 package za.ac.nwu.ga.web.sb.controller;
 
-import com.azure.storage.blob.BlobClientBuilder;
-import com.azure.storage.blob.BlobContainerClient;
-import com.azure.storage.blob.BlobServiceClient;
-import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.blob.*;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -115,10 +112,27 @@ public class PhotoController
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping("/uploadImage")
-    public String uploadImage(MultipartFile imageFile) throws IOException {
+    @RequestMapping(value = "/uploadImage",method = RequestMethod.POST)
+    public String uploadImage(@RequestParam("file") MultipartFile imageFile) throws IOException {
         createPhotoFlow.saveImage(imageFile);
         return "Success";
     }
+
+//    @PostMapping("/upload")
+//    public String uploadFile(@RequestParam("file") MultipartFile file) throws IOException
+//    {
+//        String constr = "DefaultEndpointsProtocol=https;AccountName=photogalleryrynobotes;AccountKey=rnfX8iDa9ZmHnRNR/1V+Aoq7o3ReWjXCmeQS/FqCynKWdDSReJbSJTL9je/gu+AlO46ZKStC+WQPzGugra2Biw==;EndpointSuffix=core.windows.net";
+//
+//        BlobContainerClient container = new BlobContainerClientBuilder()
+//                .connectionString(constr)
+//                .containerName("cat")
+//                .buildClient();
+//
+//        BlobClient blob = container.getBlobClient(file.getOriginalFilename());
+//
+//        blob.upload(file.getInputStream(), file.getSize(), true);
+//
+//        return "Success";
+//    }
 }
 

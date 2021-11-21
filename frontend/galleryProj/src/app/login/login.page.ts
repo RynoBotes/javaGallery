@@ -133,7 +133,7 @@ getMemberEmail(username: string, password: string)
    for (let index = 3; index < availableMembers.length; index = index+4) 
    {
       const element = availableMembers[index];
-      console.log(JSON.stringify(element));
+      // console.log(JSON.stringify(element));
     
 
       if(currValArr[0] == availableMembers[index] && password == "Romeo")
