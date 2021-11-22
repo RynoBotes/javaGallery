@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { IonRefresher, ModalController } from '@ionic/angular';
 import { BASE_API_URL } from 'src/environments/environment';
 import { HomePage } from '../home/home.page';
 import { ImageUploadPage } from '../image-upload/image-upload.page';
 import { ImageViewPage } from '../image-view/image-view.page';
+import {Router} from '@angular/router'
 
 
 let Index = 1;
@@ -11,7 +12,6 @@ let availablePhotos = [];
 let photos = [];
 
 const imageId = document.getElementById("image");
-
 fetch(BASE_API_URL+"photo-map/all")
 .then(res =>
 {
@@ -32,6 +32,7 @@ fetch(BASE_API_URL+"photo-map/all")
   });  
 }).catch(err =>{
 });
+
    
 @Component({
   selector: 'app-gallery',
@@ -42,7 +43,7 @@ export class GalleryPage implements OnInit{
  public images = [];
  public image = ""; 
 
-  constructor(private modalController:ModalController){}
+  constructor(private modalController:ModalController, private router:Router){}
   ngOnInit(): void {for (let index = 2; index < availablePhotos.length; index = index+6) 
    {
       const element = availablePhotos[index];
@@ -50,13 +51,8 @@ export class GalleryPage implements OnInit{
       this.images.push(elementia)
       
    }}
-  // index.length = 0;
-galleryLoad() {
 
-      
-     
-     
-  }
+
   
   openPreview(index){
     this.modalController.create({
@@ -71,8 +67,9 @@ galleryLoad() {
   }
 
 back(){
-   this.modalController.dismiss();
- }
+this.modalController.dismiss();
+}
+
 async home(){
   const modal = await this.modalController.create({
     component: HomePage,

@@ -80,7 +80,6 @@ this.presentSuccessToast();
   }).catch(function (error) {
     console.warn('Something went wrong.', error);
   });;
-    console.warn(JSON.stringify(photo));
   
   
   

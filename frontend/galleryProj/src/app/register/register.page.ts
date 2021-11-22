@@ -35,7 +35,6 @@ export class RegisterPage {
 }
 
 addmember= ()=>{
-  // ev.preventDefault();
 let member ={
   memberId:  (<HTMLInputElement>document.getElementById('memberId')).value,
  memberFName: (<HTMLInputElement>document.getElementById('memberFName')).value,
@@ -59,10 +58,6 @@ let member ={
 });;
   // members.push(member);
   document.forms[0].reset();
-
-  console.warn(JSON.stringify(member));
-  
-
 }
 
 deleteMember = () =>{
@@ -80,9 +75,3 @@ deleteMember = () =>{
 }
 
 }
-
-
-
-// document.addEventListener('DOMContentLoader', () =>{
-//   document.getElementById('registerbtn').addEventListener('click',addmember);
-// });

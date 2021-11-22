@@ -7,9 +7,7 @@ import { IonSlides, ModalController, NavParams } from '@ionic/angular';
     styleUrls: ['./image-view.page.scss'],
   })
   export class ImageViewPage implements OnInit {
-    // img: IImage;
     public images = [];
-    // public images: IImage[] = [];
   
     @ViewChild("slider", { static:false }) slider: IonSlides;
     sliderOpts = {
@@ -30,10 +28,7 @@ import { IonSlides, ModalController, NavParams } from '@ionic/angular';
     ionViewWillEnter() {
       this.sliderOpts.initialSlide= this.navParams.get('index');
       this.images= this.navParams.get('images');
-  
-  
-      //this.slides = this.ionSlides.getActiveIndex();
-  
+    
     }
   
     ionViewDidEnter(){

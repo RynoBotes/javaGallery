@@ -8,9 +8,11 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content text-align = center>
   <ion-grid class="grid-colour">
-    <ion-row>
+  <ion-row>
       <ion-col  col-6 col-md-4 col-xl-3 *ngFor="let img of images; let i = index" tappable (click) = "openPreview(i)">
         <div class="image-container"  zoom="true"> 
           <img class = "img" id="imageId" [src]="img" style="width:150px; height:150px; border-radius: 10px 10px; background-size: cover;" >
